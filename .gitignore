@@ -1,0 +1,20 @@
+# Archivos y carpetas generados por Node.js
+node_modules/
+dist/
+
+# Archivos de configuración
+#.env
+
+# Logs y archivos temporales
+*.log
+*.swp
+
+# Archivos de respaldo
+*.bak
+*.backup
+
+# Archivos de IDE
+.vscode/
+.idea/
+
+# Dependiendo del entorno de desarrollo, puedes agregar más archivos o carpetas a ignorar.
