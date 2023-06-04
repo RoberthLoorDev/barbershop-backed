@@ -5,6 +5,6 @@ const { ClientController } = require('../controllers')
 const router = express.Router()
 
 router.post('/createUser', ClientController.createClient)
-router.get('/getAllUsers', ClientController.getAllClients)
+router.get('/allUsers', ClientController.getAllClients)
 
 module.exports = router
