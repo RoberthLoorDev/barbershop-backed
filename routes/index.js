@@ -1,12 +1,13 @@
 const { Router } = require('express')
-const clientRoute = require('./client.route')
+const clientRoute = require('./user.route')
 const haircutRoute = require('./haircut.route')
-const appointmentRoute = require('./appointment.model')
+const appointmentRoute = require('./appointment.route')
+const chatRoute = require('./chat.route')
 
 const router = Router()
 const defaultRoutes = [
   {
-    path: '/users',
+    path: '/user',
     route: clientRoute,
   },
   {
@@ -16,6 +17,10 @@ const defaultRoutes = [
   {
     path: '/appointment',
     route: appointmentRoute,
+  },
+  {
+    path: '/chat',
+    route: chatRoute,
   },
 ]
 

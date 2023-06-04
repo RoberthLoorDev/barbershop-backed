@@ -2,9 +2,9 @@ const { AppointmentModel } = require('../models')
 
 exports.createAppointment = async (req, res) => {
   try {
-    const { id_client, id_haircut, hour } = req.body
+    const { id_user, id_haircut, hour } = req.body
     const appointment = new AppointmentModel({
-      id_client,
+      id_user,
       id_haircut,
       hour,
     })

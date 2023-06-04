@@ -1,9 +1,9 @@
-const { ClientModel } = require('../models')
+const { UserModel } = require('../models')
 
-exports.createClient = async (req, res) => {
+exports.createUser = async (req, res) => {
   try {
     const { name, lastname, phone, email, password } = req.body
-    const client = new ClientModel({
+    const user = new UserModel({
       name,
       lastname,
       phone,
@@ -11,16 +11,16 @@ exports.createClient = async (req, res) => {
       password,
     })
 
-    await client.save()
+    await user.save()
     res
       .status(200)
-      .json({ error: 'false', message: 'Cliente creado exitosamente' })
+      .json({ error: 'false', message: 'usuario creado exitosamente' })
   } catch (err) {
-    res.status(500).json({ error: err, message: 'Error al crear el cliente' })
+    res.status(500).json({ error: err, message: 'Error al crear el usuario' })
   }
 }
 
-exports.getAllClients = async (req, res) => {
+exports.getAllUsers = async (req, res) => {
   try {
     const allUsers = await ClientModel.find()
     res.status(200).json(allUsers)
