@@ -3,7 +3,7 @@ const { Router } = require('express')
 
 const router = Router()
 
-router.get('/allHaircuts', HaircutController.getAllHaircuts)
-router.post('/createHaircut', HaircutController.createHaircut)
+router.get('/getAll', HaircutController.getAllHaircuts)
+router.post('/create', HaircutController.createHaircut)
 
 module.exports = router
