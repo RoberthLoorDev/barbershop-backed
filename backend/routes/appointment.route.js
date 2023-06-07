@@ -3,7 +3,7 @@ const { AppointmentController } = require('../controllers')
 
 const router = Router()
 
-router.get('/getAll', AppointmentController.getAllAppointment)
+router.get('/all', AppointmentController.getAllAppointment)
 router.post('/create', AppointmentController.createAppointment)
 
 module.exports = router
