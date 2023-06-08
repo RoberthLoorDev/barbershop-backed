@@ -12,13 +12,9 @@ exports.createHaircut = async (req, res) => {
     })
 
     await haircut.save()
-    res
-      .status(200)
-      .json({ error: 'false', message: 'Dato ingresado', data: haircut })
+    res.status(200).json({ message: 'Dato ingresado', data: haircut })
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: 'true', message: 'Error al ingresar', error: error })
+    res.status(500).json({ message: 'Error al ingresar', error: error })
   }
 }
 
