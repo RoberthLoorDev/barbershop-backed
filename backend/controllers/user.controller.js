@@ -17,6 +17,16 @@ exports.createUser = async (req, res) => {
   }
 }
 
+exports.getUserbyId = async (req, res) => {
+  try {
+    const userId = req.params.id
+    const user = await UserModel.findById(userId)
+
+    if (!user) res.status(500).json({ data: 'Usuario no encontrado' })
+    res.status(200).json(user)
+  } catch (error) {}
+}
+
 exports.getAllUsers = async (req, res) => {
   try {
     const allUsers = await UserModel.find()
