@@ -24,7 +24,11 @@ exports.getUserbyId = async (req, res) => {
 
     if (!user) res.status(500).json({ data: 'Usuario no encontrado' })
     res.status(200).json(user)
-  } catch (error) {}
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: error, message: 'Error al consultar usuario' })
+  }
 }
 
 exports.getAllUsers = async (req, res) => {
