@@ -3,9 +3,9 @@ const { HaircutModel } = require('../models')
 //create haircut
 exports.createHaircut = async (req, res) => {
   try {
-    const { tittle, price, description, imagen } = req.body
+    const { title, price, description, imagen } = req.body
     const haircut = new HaircutModel({
-      tittle,
+      title,
       price,
       description,
       imagen,
