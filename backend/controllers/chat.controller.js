@@ -18,12 +18,35 @@ exports.createChat = async (req, res) => {
     })
 
     await chat.save()
-    res.status(200).json({ message: 'Chat created', data: chat })
+    res.status(200).json({ message: 'Chat creado', data: chat })
   } catch (error) {
     res.status(500).json({
-      message: 'error in create chat',
+      message: 'error al crear chat',
       error: error,
     })
+  }
+}
+
+exports.updateChat = async (req, res) => {
+  try {
+    const chatId = req.params.id
+    const { id_user, message } = req.body
+
+    const chat = await ChatModel.findById(chatId)
+    if (!chat) res.status(404).json({ message: 'Chat no encontrado' })
+
+    const newMessage = {
+      id_user: id_user,
+      message: message,
+    }
+
+    chat.message.push(newMessage)
+    await chat.save()
+
+    res.status(201).json(chat)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error: error })
   }
 }
 
@@ -37,7 +60,7 @@ exports.getChatsByBarber = async (req, res) => {
       id_user_barber: _id,
     })
 
-    res.status(200).json({ chats })
+    res.status(200).json(chats)
   } catch (error) {
     console.log(error)
     res.status(500).json({
