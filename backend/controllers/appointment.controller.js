@@ -7,7 +7,7 @@ exports.createAppointment = async (req, res) => {
       id_user,
       id_haircut,
       hour,
-      available
+      available,
     })
 
     await appointment.save()
@@ -25,5 +25,24 @@ exports.getAllAppointment = async (req, res) => {
     res
       .status(500)
       .json({ error: 'true', message: 'Error al obtener los datos', data: err })
+  }
+}
+
+exports.getAppointmentByUserId = async (req, res) => {
+  try {
+    const userId = req.params.id
+
+    const appointment = await AppointmentModel.find({
+      id_user: userId,
+    })
+    if (!appointment)
+      res.status(500).json({ error: 'true', message: 'citas no encontradas' })
+
+    res.status(200).json(appointment)
+  } catch (error) {
+    res.status(500).json({
+      message: 'Error al consultar las citas del usuario',
+      error: error,
+    })
   }
 }
