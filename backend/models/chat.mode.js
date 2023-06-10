@@ -21,10 +21,7 @@ const chatSchema = new Schema({
         type: String,
         ref: 'user',
       },
-      message: {
-        type: Array,
-        default: [],
-      },
+      message: { type: String, required: true },
     },
   ],
 })
